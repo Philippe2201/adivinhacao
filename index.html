@@ -1,0 +1,96 @@
+<meta charset="UTF-8"/>
+<link rel="stylesheet" href="css.css"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<input id="senha" maxlength="1" type="password">
+<input id="adivinha" maxlength="1" type="text">
+
+<button id="botao" onclick="verificar()">Chutar!</button>
+
+<p id="resultado"></p>
+<p id="maiorOuMenor"></p>
+
+
+<script type="text/javascript">
+	function verificar(){
+		tentouMaisUmaVez();
+
+		if(escondido() == chute()){ 
+			mudaFundoParaVerde();
+			falaQueAcertou();
+		}else{
+			mudaFundoParaVermelho();
+
+
+			if(chute() > escondido()){
+				ehMenor();
+			}else{
+				ehMaior();
+			}
+
+			if(tentativas > 3){
+				perdeuOJogo();
+				piscaTela();
+			}
+		}
+
+	}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="js.js"></script>
