@@ -1,12 +1,12 @@
 var estilo = document.body.style;
 var tentativas = 1;
 
-function chute(){
-	return adivinha.value;
+function valorChute(){
+	return chute.value;
 }
 
-function escondido(){
-	 return senha.value;
+function valorEscondido(){
+	 return escondido.value;
 }
 
 function mudaFundoParaVerde(){
@@ -43,5 +43,26 @@ function tentouMaisUmaVez(){
 
 function piscaTela(){
 	document.body.classList.add("pisca");
-	careta.classList.add("animate wobble")
+}
+
+function limpaTela(){
+	document.body.innerHTML = "";
+}
+
+function falaGameOver(){
+    document.body.innerHTML = "<img id='imagem' src='careta.jpg'><button id='botao' onclick='reiniciaJogo()'>REINICIAR</button><h1>GAME OVER</h1>";
+}
+
+function reiniciaJogo(){
+    location.reload();
+}
+
+function estaVazio(element){
+    if(element.value == "") return true;
+    return false;
+}
+
+function gritar(){
+    var audio = new Audio('grito.mp3');
+    audio.play();
 }

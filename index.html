@@ -9,66 +9,94 @@
 
 
 
+<input type="password" id="escondido">
+<input type="text" id="chute">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<input id="senha" maxlength="1" type="password">
-<input id="adivinha" maxlength="1" type="text">
-
-<button id="botao" onclick="verificar()">Chutar!</button>
+<button onclick="verificar()" id="botao">Chutar!</button>
 
 <p id="resultado"></p>
-<p id="maiorOuMenor"></p>
-
 
 <script type="text/javascript">
-	function verificar(){
-		tentouMaisUmaVez();
 
-		if(escondido() == chute()){ 
-			mudaFundoParaVerde();
-			falaQueAcertou();
-		}else{
-			mudaFundoParaVermelho();
+    function verificar(){
+        if(estaVazio(escondido)){
+            alert("Preencha o Escondido!!!");
+            return;
+        }
+        if(estaVazio(chute)){
+            alert("Preencha o Chute!!!");
+            return;
+        }
+        
+        tentouMaisUmaVez();
+        
+        
+        if(valorChute() == valorEscondido()){
+            falaQueAcertou();
+            mudaFundoParaVerde();
+        }
 
-
-			if(chute() > escondido()){
-				ehMenor();
-			}else{
-				ehMaior();
-			}
-
-			if(tentativas > 3){
-				perdeuOJogo();
-				piscaTela();
-			}
-		}
-
-	}
+        if(valorChute() != valorEscondido()){
+            if(valorEscondido() > valorChute()){
+                ehMaior();
+            }
+            if(valorEscondido() < valorChute()){
+                ehMenor();
+            }
+            mudaFundoParaVermelho();
+            if(tentativas > 3){
+                piscaTela();
+                falaGameOver();
+                gritar();
+            }
+        }
+    }
+    
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
